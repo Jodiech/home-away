@@ -9,7 +9,7 @@ export const formattedCountries = countries.map((item) => {
     region: item.region,
   };
 });
-//set up helper function to find country based on country code
+
 export const findCountryByCode = (code: string) => {
   return formattedCountries.find((item) => item.code === code);
 };

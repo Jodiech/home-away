@@ -12,7 +12,6 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { uploadImage } from "./supabase";
 
-//we want the whole user for the profile
 const getAuthUser = async () => {
   const user = await currentUser();
   if (!user) {
@@ -58,7 +57,7 @@ export const createProfileAction = async (
   }
   redirect("/");
 };
-//if you are able to create a profile, you want to go to the home page
+
 export const fetchProfileImage = async () => {
   const user = await currentUser();
   if (!user) return null;
@@ -73,8 +72,6 @@ export const fetchProfileImage = async () => {
   return profile?.profileImage;
 };
 
-//write another function to get the user profile
-//we wrap the clerk in the get user
 export const fetchProfile = async () => {
   const user = await getAuthUser();
   const profile = await db.profile.findUnique({
@@ -86,12 +83,6 @@ export const fetchProfile = async () => {
   return profile;
 };
 
-//repeat the same steps as create profile
-//use safe parse option - were not going to throw error
-//results are handled ourselves
-//what we get back isn't going to be the same
-//the result will be object with values and success property that is true or false
-//if the success is false, we want to handle that error
 export const updateProfileAction = async (
   prevState: any,
   formData: FormData

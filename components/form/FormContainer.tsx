@@ -8,13 +8,12 @@ import { actionFunction } from "@/utils/types";
 const initialState = {
   message: "",
 };
-//looking for action function and children
-//using separate components so we can reuse them
+
 function FormContainer({
   action,
   children,
 }: {
-  action: actionFunction; //a type we will set up at the end
+  action: actionFunction; 
   children: React.ReactNode;
 }) {
   const [state, formAction] = useFormState(action, initialState);

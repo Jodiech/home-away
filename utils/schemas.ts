@@ -13,7 +13,7 @@ export const profileSchema = z.object({
   }),
 });
 
-//generic type using T
+
 export function validateWithZodSchema<T>(
   schema: ZodSchema<T>,
   data: unknown
@@ -31,7 +31,6 @@ export const imageSchema = z.object({
 });
 
 function validateFile() {
-  //check whether image is a file
   const maxUploadSize = 1024 * 1024;
   const acceptedFileTypes = ["image/"];
   return z
@@ -45,8 +44,7 @@ function validateFile() {
       );
     }, "File must be an image");
 }
-//it needs to be a file
-//checking for the type
+
 export const propertySchema = z.object({
   name: z
     .string()
