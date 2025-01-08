@@ -268,3 +268,4 @@ export const fetchPropertyDetails = (id: string) => {
     },
   });
 };
+//comment
